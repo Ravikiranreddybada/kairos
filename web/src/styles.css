@@ -1,0 +1,358 @@
+@import "tailwindcss";
+
+/* Kairos requisition pad. Light = the paper pad; dark = the carbon sheet. */
+:root {
+  --ground: #e4e5e1;
+  --ground-2: #d9dbd6;
+  --sheet: #f7f7f4;
+  --canary: #f4e38a;
+  --canary-2: #efd969;
+  --pink: #f1c9d2;
+  --pink-2: #e9b5c1;
+  --rule: #9cb8a6;
+  --rule-strong: #6f9a82;
+  --rule-ink: #3c6650;
+  --type: #1f2227;
+  --type-2: #4a4e57;
+  --ink: #23306b;
+  --ink-2: #48538a;
+  --ink-wash: rgb(35 48 107 / 0.12);
+  --ink-band: rgb(35 48 107 / 0.16);
+  --on-canary-2: #5b4c0b;
+  --on-pink-2: #6a2a3b;
+  --errata: #b3261e;
+  --errata-wash: rgb(179 38 30 / 0.1);
+  --selection: rgb(244 227 138 / 0.85);
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  --ground: #0c1022;
+  --ground-2: #121733;
+  --sheet: #171d3b;
+  --canary: #36311a;
+  --canary-2: #4d4520;
+  --pink: #3b2231;
+  --pink-2: #563044;
+  --rule: #2e4a3d;
+  --rule-strong: #4c7562;
+  --rule-ink: #8fbfa5;
+  --type: #e6e8ef;
+  --type-2: #a9aec0;
+  --ink: #c3cdff;
+  --ink-2: #98a3d9;
+  --ink-wash: rgb(195 205 255 / 0.1);
+  --ink-band: rgb(195 205 255 / 0.16);
+  --on-canary-2: #e8d77c;
+  --on-pink-2: #efb6c6;
+  --errata: #ff8f84;
+  --errata-wash: rgb(255 143 132 / 0.12);
+  --selection: rgb(195 205 255 / 0.3);
+  color-scheme: dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ground: #0c1022;
+    --ground-2: #121733;
+    --sheet: #171d3b;
+    --canary: #36311a;
+    --canary-2: #4d4520;
+    --pink: #3b2231;
+    --pink-2: #563044;
+    --rule: #2e4a3d;
+    --rule-strong: #4c7562;
+    --rule-ink: #8fbfa5;
+    --type: #e6e8ef;
+    --type-2: #a9aec0;
+    --ink: #c3cdff;
+    --ink-2: #98a3d9;
+    --ink-wash: rgb(195 205 255 / 0.1);
+    --ink-band: rgb(195 205 255 / 0.16);
+    --on-canary-2: #e8d77c;
+    --on-pink-2: #efb6c6;
+    --errata: #ff8f84;
+    --errata-wash: rgb(255 143 132 / 0.12);
+    --selection: rgb(195 205 255 / 0.3);
+    color-scheme: dark;
+  }
+}
+
+@theme inline {
+  --font-sans: "Archivo Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Fragment Mono", ui-monospace, "SFMono-Regular", monospace;
+  --color-ground: var(--ground);
+  --color-ground-2: var(--ground-2);
+  --color-sheet: var(--sheet);
+  --color-canary: var(--canary);
+  --color-canary-2: var(--canary-2);
+  --color-pink: var(--pink);
+  --color-pink-2: var(--pink-2);
+  --color-rule: var(--rule);
+  --color-rule-strong: var(--rule-strong);
+  --color-rule-ink: var(--rule-ink);
+  --color-type: var(--type);
+  --color-type-2: var(--type-2);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-errata: var(--errata);
+}
+
+/* ------------------------------------------------------------------ base */
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--type);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.5;
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--selection);
+  color: var(--type);
+}
+
+:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+textarea {
+  caret-color: var(--ink);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--rule-strong) transparent;
+}
+
+.num {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+  letter-spacing: -0.01em;
+}
+
+/* Preprinted form text: condensed caption set by the form printer, not by the system. */
+.caption {
+  font-stretch: 78%;
+  font-weight: 560;
+  font-size: 11px;
+  line-height: 14px;
+  letter-spacing: 0.02em;
+  color: var(--rule-ink);
+}
+
+.wordmark {
+  font-stretch: 125%;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+/* ------------------------------------------------------------ the sheet */
+.sheet {
+  background: var(--sheet);
+  border: 1px solid var(--rule-strong);
+}
+
+/* A form cell: caption printed in its top-left, the filled value under it. */
+.cell {
+  border-right: 1px solid var(--rule);
+  padding: 6px 10px 8px;
+  min-width: 0;
+}
+.cell:last-child {
+  border-right: 0;
+}
+
+/* Ruled answer area: each line of text sits on a printed rule. */
+.ruled {
+  --line: 28px;
+  line-height: var(--line);
+  background-image: linear-gradient(to bottom, transparent calc(var(--line) - 1px), var(--rule) calc(var(--line) - 1px));
+  background-size: 100% var(--line);
+  background-position: 0 0;
+}
+
+.filled {
+  color: var(--ink);
+}
+
+/* Stacked copies peek out under the top sheet, like a real multi-part pad. */
+.stack {
+  position: relative;
+}
+.stack::before,
+.stack::after {
+  content: "";
+  position: absolute;
+  left: 6px;
+  right: -6px;
+  border: 1px solid var(--rule-strong);
+  border-top: 0;
+  height: 6px;
+  z-index: 0;
+}
+.stack::before {
+  bottom: -7px;
+  background: var(--canary);
+}
+.stack::after {
+  left: 12px;
+  right: -12px;
+  bottom: -13px;
+  background: var(--pink);
+}
+.stack > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------------------------------------------------------------- stamp */
+.stamp {
+  display: inline-grid;
+  gap: 2px;
+  padding: 6px 12px 7px;
+  border: 2px solid currentColor;
+  outline: 1px solid currentColor;
+  outline-offset: 2px;
+  rotate: -3deg;
+  text-align: center;
+  color: var(--ink);
+  background: transparent;
+}
+.stamp-word {
+  font-stretch: 112%;
+  font-weight: 800;
+  font-size: 19px;
+  line-height: 1;
+  letter-spacing: 0.08em;
+}
+.stamp[data-tone="errata"] {
+  color: var(--errata);
+}
+.stamp[data-tone="quiet"] {
+  color: var(--ink-2);
+}
+
+/* Two-frame hinge: nothing eases, it lands. */
+@media (prefers-reduced-motion: no-preference) {
+  .lands {
+    animation: land 90ms steps(2, jump-none) both;
+  }
+  .stamp.lands {
+    animation: stamp-land 90ms steps(2, jump-none) both;
+  }
+  .pending-mark {
+    animation: blink 900ms steps(2, jump-none) infinite;
+  }
+}
+@keyframes land {
+  from {
+    opacity: 0;
+    transform: translateY(-3px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes stamp-land {
+  from {
+    opacity: 0;
+    scale: 1.08;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}
+@keyframes blink {
+  50% {
+    opacity: 0.25;
+  }
+}
+
+/* --------------------------------------------------------------- controls */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 36px;
+  padding: 0 14px;
+  border: 1px solid var(--ink);
+  background: var(--ink);
+  color: var(--sheet);
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 150ms ease-out, color 150ms ease-out;
+}
+.btn:hover {
+  background: var(--ink-2);
+  border-color: var(--ink-2);
+}
+.btn:active {
+  transform: translateY(1px);
+}
+.btn:disabled {
+  cursor: not-allowed;
+  background: transparent;
+  color: var(--type-2);
+  border-color: var(--rule-strong);
+}
+/* On the carbon sheet the primary is transferred ink: an outline, never a pale filled slab. */
+:root[data-theme="dark"] .btn:not(:disabled):not(.btn-quiet) {
+  background: var(--ink-band);
+  color: var(--ink);
+}
+:root[data-theme="dark"] .btn:not(:disabled):not(.btn-quiet):hover {
+  background: var(--ink-wash);
+  border-color: var(--ink);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .btn:not(:disabled):not(.btn-quiet) {
+    background: var(--ink-band);
+    color: var(--ink);
+  }
+  :root:not([data-theme="light"]) .btn:not(:disabled):not(.btn-quiet):hover {
+    background: var(--ink-wash);
+    border-color: var(--ink);
+  }
+}
+.btn-quiet {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--rule-strong);
+}
+.btn-quiet:hover {
+  background: var(--ink-wash);
+  border-color: var(--ink);
+}
+
+.kbd {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 1px 5px;
+  border: 1px solid currentColor;
+  opacity: 0.8;
+}
+
+.sr-only-table {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}

@@ -1,0 +1,72 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "kairos"
+version = "0.1.0"
+description = "Supply-chain decision intelligence: probabilistic forecasting, inventory policy and a grounded agentic copilot."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+dependencies = [
+  "numpy>=2.0",
+  "pandas>=2.2",
+  "scikit-learn>=1.5",
+  "statsmodels>=0.14",
+  "lightgbm>=4.3",
+  "duckdb>=1.1",
+  "sqlglot>=25.0",
+  "pydantic>=2.7",
+  "pydantic-settings>=2.3",
+  "fastapi>=0.115",
+  "uvicorn[standard]>=0.30",
+  "httpx>=0.27",
+  "langgraph>=0.2",
+  "langchain-core>=0.3",
+  "prometheus-client>=0.20",
+]
+
+[project.optional-dependencies]
+llm = ["anthropic>=0.40"]
+mcp = ["mcp>=2.0"]
+tracking = ["mlflow>=2.14"]
+foundation = ["chronos-forecasting>=2.0", "torch>=2.4"]
+dev = ["pytest>=8", "pytest-asyncio>=0.23", "ruff>=0.6", "mypy>=1.10"]
+
+[project.scripts]
+kairos = "kairos.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/kairos"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q --strict-markers"
+markers = [
+  "slow: trains real models end-to-end (deselect with -m 'not slow')",
+]
+filterwarnings = [
+  "ignore::DeprecationWarning",
+  "ignore::FutureWarning",
+  "ignore::UserWarning",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "SIM", "RUF"]
+ignore = ["E501", "RUF001", "RUF002", "RUF003"]
+
+[tool.ruff.lint.flake8-bugbear]
+extend-immutable-calls = ["fastapi.Depends", "fastapi.Query", "fastapi.Header", "pydantic.Field"]
+
+[tool.mypy]
+plugins = ["pydantic.mypy"]
+python_version = "3.11"
+ignore_missing_imports = true
+warn_unused_ignores = true
+strict_optional = true

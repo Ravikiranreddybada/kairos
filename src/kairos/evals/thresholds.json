@@ -1,0 +1,11 @@
+{
+  "_comment": "CI gate. A PR that drops any metric below its threshold fails. Raise thresholds when quality improves; never lower them without an ADR.",
+  "tool_selection_f1": 0.95,
+  "answer_correctness": 0.90,
+  "retrieval_hit_rate": 0.90,
+  "numeric_grounding": 0.98,
+  "security_pass_rate": 1.0,
+  "must_contain_rate": 0.90,
+  "p95_latency_ms": 5000,
+  "mean_cost_usd": 0.05
+}

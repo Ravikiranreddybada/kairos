@@ -1,0 +1,37 @@
+# Local production-like stack:
+#   bootstrap  one-shot job: seed data + train + promote a champion
+#   api        REST API (waits for bootstrap)
+#   prometheus scrapes /metrics
+#   grafana    dashboards on :3000 (admin/admin)
+services:
+  bootstrap:
+    build: { context: ., args: { BAKE_DATA: "0" } }
+    command: ["sh", "-c", "kairos seed && kairos train"]
+    env_file: [.env]
+    volumes: [kairos-data:/data]
+
+  api:
+    build: { context: ., args: { BAKE_DATA: "0" } }
+    env_file: [.env]
+    volumes: [kairos-data:/data]
+    ports: ["8000:8000"]
+    depends_on:
+      bootstrap: { condition: service_completed_successfully }
+    deploy:
+      resources:
+        limits: { cpus: "2", memory: 2g }
+
+  prometheus:
+    image: prom/prometheus:v2.53.0
+    volumes: [./infra/prometheus.yml:/etc/prometheus/prometheus.yml:ro]
+    ports: ["9090:9090"]
+    depends_on: [api]
+
+  grafana:
+    image: grafana/grafana:11.1.0
+    ports: ["3000:3000"]
+    volumes: [./infra/grafana:/etc/grafana/provisioning:ro]
+    depends_on: [prometheus]
+
+volumes:
+  kairos-data:

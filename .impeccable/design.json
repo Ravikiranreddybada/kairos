@@ -1,0 +1,652 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-19T12:58:52+00:00",
+  "title": "Design System: Kairos",
+  "extensions": {
+    "colorMeta": {
+      "carbon-ink": {
+        "role": "primary",
+        "displayName": "Carbon Ink",
+        "canonical": "oklch(33.4% 0.104 270.5)",
+        "tonalRamp": [
+          "#060a1a",
+          "#192244",
+          "#303e72",
+          "#4b5d9c",
+          "#6b7ec1",
+          "#8ca2e7",
+          "#b3c7ff",
+          "#dfedff"
+        ]
+      },
+      "carbon-ink-faded": {
+        "role": "primary",
+        "displayName": "Faded Carbon",
+        "canonical": "oklch(45.9% 0.091 273.8)",
+        "tonalRamp": [
+          "#070a18",
+          "#1d2240",
+          "#353e6c",
+          "#515d95",
+          "#717eb9",
+          "#93a1de",
+          "#b9c6fc",
+          "#e3edff"
+        ]
+      },
+      "ledger-green": {
+        "role": "secondary",
+        "displayName": "Ledger Green",
+        "canonical": "oklch(47.3% 0.060 160.1)",
+        "tonalRamp": [
+          "#040e08",
+          "#142b1f",
+          "#274b38",
+          "#426c56",
+          "#638e76",
+          "#85b198",
+          "#aed4be",
+          "#dcf6e7"
+        ]
+      },
+      "ledger-rule": {
+        "role": "secondary",
+        "displayName": "Ledger Rule",
+        "canonical": "oklch(75.6% 0.040 157.1)",
+        "tonalRamp": [
+          "#070d09",
+          "#1b2920",
+          "#32483b",
+          "#4f6858",
+          "#6f8a79",
+          "#91ad9b",
+          "#b8d0c0",
+          "#e3f4e8"
+        ]
+      },
+      "ledger-rule-strong": {
+        "role": "secondary",
+        "displayName": "Ledger Rule Strong",
+        "canonical": "oklch(64.8% 0.059 159.7)",
+        "tonalRamp": [
+          "#040e08",
+          "#142b1f",
+          "#274b38",
+          "#426c55",
+          "#638e76",
+          "#85b198",
+          "#aed4be",
+          "#dcf6e7"
+        ]
+      },
+      "canary-copy": {
+        "role": "tertiary",
+        "displayName": "Canary Copy",
+        "canonical": "oklch(91.1% 0.111 98.8)",
+        "tonalRamp": [
+          "#0f0b00",
+          "#2e2500",
+          "#504100",
+          "#726100",
+          "#938326",
+          "#b7a64d",
+          "#d8cb81",
+          "#f9f0be"
+        ]
+      },
+      "canary-edge": {
+        "role": "tertiary",
+        "displayName": "Canary Edge",
+        "canonical": "oklch(88.2% 0.134 98.4)",
+        "tonalRamp": [
+          "#100b00",
+          "#302400",
+          "#534000",
+          "#766000",
+          "#988200",
+          "#bba52e",
+          "#dcca6f",
+          "#fcf0b3"
+        ]
+      },
+      "canary-caption": {
+        "role": "tertiary",
+        "displayName": "Canary Caption",
+        "canonical": "oklch(42.0% 0.081 94.9)",
+        "tonalRamp": [
+          "#0f0b01",
+          "#2d2404",
+          "#4e410b",
+          "#706025",
+          "#928247",
+          "#b5a569",
+          "#d7c996",
+          "#f8efcc"
+        ]
+      },
+      "pink-copy": {
+        "role": "tertiary",
+        "displayName": "Pink Copy",
+        "canonical": "oklch(87.3% 0.047 3.0)",
+        "tonalRamp": [
+          "#11080a",
+          "#311f24",
+          "#553940",
+          "#78565f",
+          "#9b7780",
+          "#bf99a2",
+          "#e1bfc6",
+          "#ffe7ed"
+        ]
+      },
+      "pink-edge": {
+        "role": "tertiary",
+        "displayName": "Pink Edge",
+        "canonical": "oklch(82.3% 0.062 3.2)",
+        "tonalRamp": [
+          "#13070a",
+          "#351d23",
+          "#5a353f",
+          "#7f525e",
+          "#a3737e",
+          "#c795a1",
+          "#e8bbc6",
+          "#ffe5ec"
+        ]
+      },
+      "pink-caption": {
+        "role": "tertiary",
+        "displayName": "Pink Caption",
+        "canonical": "oklch(38.1% 0.093 6.0)",
+        "tonalRamp": [
+          "#160509",
+          "#3c1821",
+          "#652d3b",
+          "#8d4959",
+          "#b16a7a",
+          "#d78c9c",
+          "#f7b4c1",
+          "#ffe0e9"
+        ]
+      },
+      "errata-red": {
+        "role": "tertiary",
+        "displayName": "Errata Red",
+        "canonical": "oklch(50.1% 0.178 28.7)",
+        "tonalRamp": [
+          "#1f0000",
+          "#4e0000",
+          "#820000",
+          "#b0221b",
+          "#d84c3f",
+          "#ff7161",
+          "#ffa090",
+          "#ffd4c7"
+        ]
+      },
+      "top-sheet": {
+        "role": "neutral",
+        "displayName": "Top Sheet",
+        "canonical": "oklch(97.5% 0.004 106.5)",
+        "tonalRamp": [
+          "#0b0b09",
+          "#252523",
+          "#424240",
+          "#61615f",
+          "#828280",
+          "#a5a5a2",
+          "#c9c9c6",
+          "#efefec"
+        ]
+      },
+      "desk": {
+        "role": "neutral",
+        "displayName": "Desk",
+        "canonical": "oklch(92.0% 0.005 117.9)",
+        "tonalRamp": [
+          "#0b0b09",
+          "#252522",
+          "#42423f",
+          "#61625e",
+          "#82837f",
+          "#a4a5a2",
+          "#c9cac6",
+          "#eeefeb"
+        ]
+      },
+      "desk-shadowed": {
+        "role": "neutral",
+        "displayName": "Desk Shadowed",
+        "canonical": "oklch(88.8% 0.007 124.5)",
+        "tonalRamp": [
+          "#0a0c09",
+          "#242622",
+          "#41433f",
+          "#60625e",
+          "#81837e",
+          "#a4a6a1",
+          "#c8cac5",
+          "#edefea"
+        ]
+      },
+      "type-black": {
+        "role": "neutral",
+        "displayName": "Type Black",
+        "canonical": "oklch(25.1% 0.010 260.7)",
+        "tonalRamp": [
+          "#0a0b0d",
+          "#232528",
+          "#3f4247",
+          "#5e6167",
+          "#7f8289",
+          "#a1a5ac",
+          "#c6c9cf",
+          "#eceff3"
+        ]
+      },
+      "type-grey": {
+        "role": "neutral",
+        "displayName": "Type Grey",
+        "canonical": "oklch(42.4% 0.016 266.5)",
+        "tonalRamp": [
+          "#0a0b0e",
+          "#23252a",
+          "#3f424a",
+          "#5d616b",
+          "#7e828c",
+          "#a0a5af",
+          "#c5c9d2",
+          "#eceef5"
+        ]
+      },
+      "carbon-ground": {
+        "role": "neutral",
+        "displayName": "Carbon Ground (dark)",
+        "canonical": "oklch(18.0% 0.038 272.6)",
+        "tonalRamp": [
+          "#090b11",
+          "#212431",
+          "#3c4154",
+          "#5a6077",
+          "#7a8199",
+          "#9da4bd",
+          "#c2c8df",
+          "#e9eefe"
+        ]
+      },
+      "carbon-ground-2": {
+        "role": "neutral",
+        "displayName": "Carbon Ground Shadowed (dark)",
+        "canonical": "oklch(21.7% 0.055 273.3)",
+        "tonalRamp": [
+          "#090b13",
+          "#202436",
+          "#39405c",
+          "#575f81",
+          "#7780a4",
+          "#99a3c8",
+          "#bfc8e8",
+          "#e7eeff"
+        ]
+      },
+      "carbon-sheet": {
+        "role": "neutral",
+        "displayName": "Carbon Sheet (dark)",
+        "canonical": "oklch(24.3% 0.058 272.9)",
+        "tonalRamp": [
+          "#080b14",
+          "#1f2436",
+          "#39405d",
+          "#565f82",
+          "#7680a6",
+          "#99a3ca",
+          "#bec8ea",
+          "#e7eeff"
+        ]
+      },
+      "transferred-ink": {
+        "role": "primary",
+        "displayName": "Transferred Ink (dark)",
+        "canonical": "oklch(85.7% 0.070 276.0)",
+        "tonalRamp": [
+          "#080a15",
+          "#1f233a",
+          "#393f63",
+          "#565e89",
+          "#767fad",
+          "#99a2d2",
+          "#bec7f1",
+          "#e6edff"
+        ]
+      },
+      "transferred-ink-faded": {
+        "role": "primary",
+        "displayName": "Faded Transferred Ink (dark)",
+        "canonical": "oklch(72.7% 0.080 275.3)",
+        "tonalRamp": [
+          "#080a17",
+          "#1e233d",
+          "#373e67",
+          "#545d8e",
+          "#747fb2",
+          "#96a1d7",
+          "#bcc6f6",
+          "#e5edff"
+        ]
+      },
+      "carbon-canary": {
+        "role": "tertiary",
+        "displayName": "Carbon Canary (dark)",
+        "canonical": "oklch(31.2% 0.038 97.4)",
+        "tonalRamp": [
+          "#0d0b06",
+          "#282518",
+          "#47422e",
+          "#676249",
+          "#888369",
+          "#aba68b",
+          "#cfcab2",
+          "#f2efde"
+        ]
+      },
+      "carbon-pink": {
+        "role": "tertiary",
+        "displayName": "Carbon Pink (dark)",
+        "canonical": "oklch(29.0% 0.045 343.5)",
+        "tonalRamp": [
+          "#10090d",
+          "#2f2028",
+          "#513a47",
+          "#745768",
+          "#967889",
+          "#ba9aac",
+          "#dcc0cf",
+          "#fce8f3"
+        ]
+      },
+      "carbon-rule": {
+        "role": "secondary",
+        "displayName": "Carbon Rule (dark)",
+        "canonical": "oklch(38.2% 0.041 163.7)",
+        "tonalRamp": [
+          "#060d09",
+          "#192922",
+          "#30483d",
+          "#4c695b",
+          "#6c8a7c",
+          "#8eae9e",
+          "#b6d1c3",
+          "#e1f4ea"
+        ]
+      },
+      "carbon-rule-ink": {
+        "role": "secondary",
+        "displayName": "Carbon Caption Green (dark)",
+        "canonical": "oklch(76.3% 0.063 160.8)",
+        "tonalRamp": [
+          "#040e08",
+          "#122b1f",
+          "#244b38",
+          "#3f6c55",
+          "#608e76",
+          "#82b298",
+          "#abd5be",
+          "#daf7e6"
+        ]
+      },
+      "carbon-type": {
+        "role": "neutral",
+        "displayName": "Carbon Type (dark)",
+        "canonical": "oklch(93.1% 0.010 273.4)",
+        "tonalRamp": [
+          "#0a0b0f",
+          "#23252a",
+          "#404247",
+          "#5f6167",
+          "#808288",
+          "#a3a5ab",
+          "#c7c9d0",
+          "#eceef5"
+        ]
+      },
+      "carbon-errata": {
+        "role": "tertiary",
+        "displayName": "Carbon Errata (dark)",
+        "canonical": "oklch(76.8% 0.137 26.6)",
+        "tonalRamp": [
+          "#1b0302",
+          "#460e0d",
+          "#751e1c",
+          "#a13a34",
+          "#c75d54",
+          "#ef8076",
+          "#ffaba0",
+          "#ffdbd2"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Requisition form title and Kairos wordmark; Archivo expanded 125%."
+      },
+      "stamp": {
+        "displayName": "Stamp",
+        "purpose": "Verdict word inside the stamp only."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Evidence block headings, node names, button labels."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Base text, 15px/1.5."
+      },
+      "answer": {
+        "displayName": "Answer",
+        "purpose": "Typed answer on 28px ruled lines, max 72ch, carbon ink."
+      },
+      "figure-in-prose": {
+        "displayName": "Figure in prose",
+        "purpose": "Numbers inside answer sentences: Archivo 600 tabular, never mono."
+      },
+      "label": {
+        "displayName": "Caption",
+        "purpose": "Preprinted field captions in ledger green, condensed 78%, sentence case."
+      },
+      "data": {
+        "displayName": "Data",
+        "purpose": "Identifiers, field and table values, latencies: Fragment Mono tabular."
+      },
+      "data-large": {
+        "displayName": "Data large",
+        "purpose": "Headline figures of an evidence block."
+      }
+    },
+    "shadows": [
+      {
+        "name": "stacked-copies",
+        "value": "::before 6px canary strip offset 6px right / 7px down; ::after 6px pink strip offset 12px right / 13px down; 1px rule-strong border, no blur",
+        "purpose": "The only depth device: paper edges of the copies under the open requisition. Not a box-shadow."
+      }
+    ],
+    "motion": [
+      {
+        "name": "land",
+        "value": "90ms steps(2, jump-none); opacity 0 + translateY(-3px) to rest",
+        "purpose": "Routing-slip lines arriving."
+      },
+      {
+        "name": "stamp-land",
+        "value": "90ms steps(2, jump-none); opacity 0 + scale 1.08 to rest",
+        "purpose": "The verdict stamp landing."
+      },
+      {
+        "name": "pending-blink",
+        "value": "900ms steps(2, jump-none) infinite; opacity 0.25 at 50%",
+        "purpose": "Routing / being-typed marks."
+      },
+      {
+        "name": "control-color",
+        "value": "150ms ease-out",
+        "purpose": "Button, tab, pad-row color changes only."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "land, stamp-land and blink only under prefers-reduced-motion: no-preference",
+        "purpose": "Motion is opt-out by default."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      },
+      {
+        "name": "xl",
+        "value": "1280px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Solid carbon-ink box for the one main action: New requisition, Submit.",
+      "html": "<button class=\"ds-btn\">Submit <svg width=\"16\" height=\"16\" viewBox=\"0 0 256 256\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M200 32v112a8 8 0 0 1-8 8H67.31l34.35 34.34a8 8 0 0 1-11.32 11.32l-48-48a8 8 0 0 1 0-11.32l48-48a8 8 0 0 1 11.32 11.32L67.31 136H184V32a8 8 0 0 1 16 0Z\"/></svg></button>",
+      "css": ".ds-btn { font-family: 'Archivo Variable', ui-sans-serif, system-ui, sans-serif; display: inline-flex; align-items: center; gap: 8px; height: 36px; padding: 0 14px; border: 1px solid var(--ink, #23306b); border-radius: 0; background: var(--ink, #23306b); color: var(--sheet, #f7f7f4); font-weight: 600; font-size: 14px; cursor: pointer; transition: background-color 150ms ease-out, color 150ms ease-out; } .ds-btn:hover { background: var(--ink-2, #48538a); border-color: var(--ink-2, #48538a); } .ds-btn:active { transform: translateY(1px); } .ds-btn:focus-visible { outline: 2px solid var(--ink, #23306b); outline-offset: 2px; } .ds-btn:disabled { cursor: not-allowed; background: transparent; color: var(--type-2, #4a4e57); border-color: var(--rule-strong, #6f9a82); }"
+    },
+    {
+      "name": "Quiet Button",
+      "kind": "button",
+      "refersTo": "button-quiet",
+      "description": "Outlined secondary action: Follow-up requisition, Start a new pad.",
+      "html": "<button class=\"ds-btn-quiet\"><svg width=\"15\" height=\"15\" viewBox=\"0 0 256 256\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M224 128a8 8 0 0 1-8 8h-80v80a8 8 0 0 1-16 0v-80H40a8 8 0 0 1 0-16h80V40a8 8 0 0 1 16 0v80h80a8 8 0 0 1 8 8Z\"/></svg> Follow-up requisition</button>",
+      "css": ".ds-btn-quiet { font-family: 'Archivo Variable', ui-sans-serif, system-ui, sans-serif; display: inline-flex; align-items: center; gap: 8px; height: 36px; padding: 0 14px; border: 1px solid var(--rule-strong, #6f9a82); border-radius: 0; background: transparent; color: var(--ink, #23306b); font-weight: 600; font-size: 14px; cursor: pointer; transition: background-color 150ms ease-out, border-color 150ms ease-out; } .ds-btn-quiet:hover { background: var(--ink-wash, rgb(35 48 107 / 0.12)); border-color: var(--ink, #23306b); } .ds-btn-quiet:active { transform: translateY(1px); } .ds-btn-quiet:focus-visible { outline: 2px solid var(--ink, #23306b); outline-offset: 2px; }"
+    },
+    {
+      "name": "Question Field",
+      "kind": "input",
+      "refersTo": "form-cell",
+      "description": "Boxless ruled-paper textarea: carbon ink on 28px rules under a printed caption.",
+      "html": "<label class=\"ds-field\"><span class=\"ds-caption\">Question</span><textarea class=\"ds-ruled\" rows=\"3\" placeholder=\"Ask about a store, a SKU, a forecast or a policy\"></textarea></label>",
+      "css": ".ds-caption { font-family: 'Archivo Variable', ui-sans-serif, system-ui, sans-serif; font-stretch: 78%; font-weight: 560; font-size: 11px; line-height: 14px; letter-spacing: 0.02em; color: var(--rule-ink, #3c6650); } .ds-field { display: grid; gap: 4px; padding: 12px 16px; background: var(--sheet, #f7f7f4); border: 1px solid var(--rule-strong, #6f9a82); } .ds-ruled { font-family: 'Archivo Variable', ui-sans-serif, system-ui, sans-serif; --line: 28px; line-height: var(--line); font-size: 16px; color: var(--ink, #23306b); caret-color: var(--ink, #23306b); background: transparent linear-gradient(to bottom, transparent calc(var(--line) - 1px), var(--rule, #9cb8a6) calc(var(--line) - 1px)) 0 0 / 100% var(--line); border: 0; border-radius: 0; resize: vertical; outline: none; } .ds-ruled::placeholder { color: var(--type-2, #4a4e57); } .ds-ruled:focus-visible { outline: 2px solid var(--ink, #23306b); outline-offset: 2px; }"
+    },
+    {
+      "name": "Form Header Cells",
+      "kind": "custom",
+      "refersTo": "form-cell",
+      "description": "Ruled header row: wide title cell, then captioned mono values sharing 1px borders.",
+      "html": "<div class=\"ds-header\"><div class=\"ds-cell ds-title\">Requisition</div><div class=\"ds-cell\"><div class=\"ds-caption\">No.</div><div class=\"ds-val\">0005</div></div><div class=\"ds-cell\"><div class=\"ds-caption\">Date</div><div class=\"ds-val\">19 OCT 2026</div></div><div class=\"ds-cell\"><div class=\"ds-caption\">Subject</div><div class=\"ds-val\">S02 SKU005</div></div></div>",
+      "css": ".ds-caption { font-family: 'Archivo Variable', ui-sans-serif, system-ui, sans-serif; font-stretch: 78%; font-weight: 560; font-size: 11px; line-height: 14px; letter-spacing: 0.02em; color: var(--rule-ink, #3c6650); } .ds-header { display: grid; grid-template-columns: 1.4fr repeat(3, 1fr); background: var(--sheet, #f7f7f4); border: 1px solid var(--rule-strong, #6f9a82); } .ds-cell { padding: 6px 10px 8px; border-right: 1px solid var(--rule, #9cb8a6); min-width: 0; } .ds-cell:last-child { border-right: 0; } .ds-title { font-family: 'Archivo Variable', ui-sans-serif, system-ui, sans-serif; display: flex; align-items: flex-end; font-stretch: 125%; font-weight: 800; font-size: 22px; line-height: 28px; letter-spacing: -0.02em; color: var(--type, #1f2227); } .ds-val { font-family: 'Fragment Mono', ui-monospace, monospace; font-variant-numeric: tabular-nums; letter-spacing: -0.01em; margin-top: 2px; font-size: 13.5px; color: var(--ink, #23306b); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }"
+    },
+    {
+      "name": "Copy Tabs",
+      "kind": "nav",
+      "refersTo": "copy-tab-evidence",
+      "description": "Square paper tabs: open copy tall in its sheet color, folded copy shorter in its edge tint.",
+      "html": "<div class=\"ds-tabs\" role=\"tablist\"><button role=\"tab\" aria-selected=\"true\" class=\"ds-tab ds-tab-canary\">Evidence copy</button><button role=\"tab\" aria-selected=\"false\" class=\"ds-tab ds-tab-pink\">Audit copy</button></div><div class=\"ds-tabpanel\">Every figure in an answer comes from a read-only tool.</div>",
+      "css": ".ds-tabs { display: flex; gap: 4px; align-items: flex-end; } .ds-tab { font-family: 'Archivo Variable', ui-sans-serif, system-ui, sans-serif; height: 36px; padding: 0 16px; border: 1px solid var(--rule-strong, #6f9a82); border-bottom: 0; border-radius: 0; font-size: 13.5px; font-weight: 600; color: var(--type, #1f2227); cursor: pointer; transition: height 150ms, color 150ms; } .ds-tab-canary { background: var(--canary, #f4e38a); } .ds-tab-pink { background: var(--pink-2, #e9b5c1); } .ds-tab[aria-selected=\"false\"] { height: 30px; color: var(--type-2, #4a4e57); } .ds-tab[aria-selected=\"false\"]:hover { color: var(--type, #1f2227); } .ds-tab:focus-visible { outline: 2px solid var(--ink, #23306b); outline-offset: 2px; } .ds-tabpanel { font-family: 'Archivo Variable', ui-sans-serif, system-ui, sans-serif; padding: 16px; background: var(--canary, #f4e38a); border: 1px solid var(--rule-strong, #6f9a82); font-size: 13.5px; line-height: 24px; color: var(--on-canary-2, #5b4c0b); }"
+    },
+    {
+      "name": "Pad Item",
+      "kind": "nav",
+      "refersTo": "pad-item-open",
+      "description": "One filed requisition in the pad: mono number and time, question, subject ids, status word.",
+      "html": "<button class=\"ds-pad-item\" aria-current=\"true\"><span class=\"ds-row\"><span class=\"ds-mono ds-ink\">No. 0005</span><span class=\"ds-mono ds-grey\">18:24</span></span><span class=\"ds-q\">Should we reorder SKU005 at S02?</span><span class=\"ds-row\"><span class=\"ds-mono ds-grey\">S02 SKU005</span><span class=\"ds-status\">Verified</span></span></button>",
+      "css": ".ds-pad-item { font-family: 'Archivo Variable', ui-sans-serif, system-ui, sans-serif; display: grid; gap: 4px; width: 248px; padding: 12px 16px; text-align: left; background: var(--ground-2, #d9dbd6); border: 0; border-bottom: 1px solid var(--rule, #9cb8a6); border-radius: 0; cursor: pointer; transition: background-color 150ms; } .ds-pad-item[aria-current=\"true\"] { background: var(--sheet, #f7f7f4); } .ds-pad-item:not([aria-current]):hover { background: var(--ink-wash, rgb(35 48 107 / 0.12)); } .ds-pad-item:focus-visible { outline: 2px solid var(--ink, #23306b); outline-offset: 2px; } .ds-row { display: flex; justify-content: space-between; gap: 8px; font-size: 12px; } .ds-mono { font-family: 'Fragment Mono', ui-monospace, monospace; font-variant-numeric: tabular-nums; letter-spacing: -0.01em; } .ds-ink { color: var(--ink, #23306b); } .ds-grey { color: var(--type-2, #4a4e57); } .ds-q { font-size: 13.5px; line-height: 19px; color: var(--type, #1f2227); } .ds-status { font-weight: 600; color: var(--ink, #23306b); }"
+    },
+    {
+      "name": "Verdict Stamp",
+      "kind": "custom",
+      "refersTo": "stamp-verified",
+      "description": "One per answer: rotated double-ruled box stating the verdict; ink for verified, errata for failure.",
+      "html": "<div class=\"ds-stamp\" role=\"img\" aria-label=\"VERIFIED. 3 of 3 figures traced to tools\"><span class=\"ds-stamp-word\">VERIFIED</span><span class=\"ds-stamp-note\">3 of 3 figures traced to tools</span><span class=\"ds-stamp-date\">19 OCT 2026</span></div> <div class=\"ds-stamp ds-stamp-errata\" role=\"img\" aria-label=\"UNVERIFIED\"><span class=\"ds-stamp-word\">UNVERIFIED</span><span class=\"ds-stamp-note\">1 of 4 figures untraced</span><span class=\"ds-stamp-date\">19 OCT 2026</span></div>",
+      "css": ".ds-stamp { font-family: 'Archivo Variable', ui-sans-serif, system-ui, sans-serif; display: inline-grid; gap: 2px; margin: 12px; padding: 6px 12px 7px; border: 2px solid currentColor; outline: 1px solid currentColor; outline-offset: 2px; rotate: -3deg; text-align: center; color: var(--ink, #23306b); background: transparent; } .ds-stamp-errata { color: var(--errata, #b3261e); } .ds-stamp-word { font-stretch: 112%; font-weight: 800; font-size: 19px; line-height: 1; letter-spacing: 0.08em; } .ds-stamp-note { font-stretch: 85%; font-weight: 600; font-size: 11px; line-height: 16px; } .ds-stamp-date { font-family: 'Fragment Mono', ui-monospace, monospace; font-variant-numeric: tabular-nums; letter-spacing: -0.01em; font-size: 10.5px; line-height: 16px; } @media (prefers-reduced-motion: no-preference) { .ds-stamp { animation: ds-stamp-land 90ms steps(2, jump-none) both; } } @keyframes ds-stamp-land { from { opacity: 0; scale: 1.08; } to { opacity: 1; scale: 1; } }"
+    },
+    {
+      "name": "Routing Slip Line",
+      "kind": "custom",
+      "refersTo": "form-cell",
+      "description": "Numbered ruled line per graph node; tool calls draw ink bars sized by real latency.",
+      "html": "<ol class=\"ds-slip\"><li><span class=\"ds-n\">04</span><span class=\"ds-node\">Model</span><span class=\"ds-text\">Planned a tool call</span></li><li><span class=\"ds-n\">05</span><span class=\"ds-node\">Tools</span><span class=\"ds-text\">Ran read-only tools<span class=\"ds-call\"><span class=\"ds-mono\">inventory_policy</span><span class=\"ds-bar\" style=\"width:120px\"></span><span class=\"ds-mono ds-lat\">109 ms</span></span></span></li></ol>",
+      "css": ".ds-slip { font-family: 'Archivo Variable', ui-sans-serif, system-ui, sans-serif; list-style: none; margin: 0; padding: 0 16px; background: var(--sheet, #f7f7f4); } .ds-slip li { display: grid; grid-template-columns: 28px 64px minmax(0,1fr); align-items: baseline; column-gap: 8px; padding: 5px 0; border-bottom: 1px solid var(--rule, #9cb8a6); } .ds-n { font-family: 'Fragment Mono', ui-monospace, monospace; font-variant-numeric: tabular-nums; letter-spacing: -0.01em; font-size: 11.5px; color: var(--type-2, #4a4e57); } .ds-node { font-size: 13px; font-weight: 600; color: var(--type, #1f2227); } .ds-text { font-size: 13px; color: var(--ink, #23306b); } .ds-call { display: flex; align-items: center; gap: 8px; margin-top: 4px; } .ds-mono { font-family: 'Fragment Mono', ui-monospace, monospace; font-variant-numeric: tabular-nums; letter-spacing: -0.01em; font-size: 12px; } .ds-bar { display: inline-block; height: 5px; background: var(--ink, #23306b); } .ds-lat { margin-left: auto; font-size: 11.5px; color: var(--type-2, #4a4e57); } @media (prefers-reduced-motion: no-preference) { .ds-slip li { animation: ds-land 90ms steps(2, jump-none) both; } } @keyframes ds-land { from { opacity: 0; transform: translateY(-3px); } to { opacity: 1; transform: none; } }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Carbon-Copy Requisition",
+    "overview": "**Creative North Star: \"The Carbon-Copy Requisition\"**\n\nEvery question is a requisition torn from a multi-part form pad. The answer is typed onto the white top sheet in carbon-blue ink; the canary copy under it holds the evidence (the tool data and charts behind each figure); the pink copy holds the audit (tier, grounding, tokens, cost, trace id, champion run). The pad of past requisitions sits on the desk to the left. Nothing floats, nothing glows, nothing is rounded. Structure comes from preprinted ledger-green rules and captions, the way a form printer would set them, and everything the system itself wrote is in one ink.\n\nDensity is office-form dense: small condensed captions, tight 1px rules, tabular figures, a 28px ruled answer line. It refuses the category default for AI tools: no dark dashboard, no chat bubbles, no sidebar of cards, no blue-purple accent gradient. Dark mode is not an inverted light mode; it is the carbon sheet itself, a blue-black ground with pale transferred ink.\n\nMotion is mechanical. Things land, they do not ease: routing-slip lines and the final stamp arrive in a 2-frame, 90ms step. A pending mark blinks in two steps. All of it switches off under reduced motion.",
+    "keyCharacteristics": [
+      "Three sheet colors (white, canary, pink) carry three jobs (answer, evidence, audit).",
+      "One ink (carbon blue) for everything the system filled in; preprinted green for everything the form \"came with\".",
+      "Square corners and 1px rules everywhere; depth only from stacked paper edges.",
+      "Archivo for the form, Fragment Mono for filled values and identifiers.",
+      "One stamp per answer states the verdict: VERIFIED, UNVERIFIED, REFUSED, DEGRADED, PARTIAL, NOT FILED."
+    ],
+    "rules": [
+      {
+        "name": "The One Ink Rule",
+        "body": "Anything the system filled in is carbon ink. Anything the form came with is ledger green or type black. Never fill a value in green or print a caption in ink.",
+        "section": "colors"
+      },
+      {
+        "name": "The Three Copies Rule",
+        "body": "White is the answer, canary is evidence, pink is audit. Do not use canary or pink as decoration or as a highlight on the top sheet.",
+        "section": "colors"
+      },
+      {
+        "name": "The Errata Reserve Rule",
+        "body": "Errata red means a failure the planner must see. It is never a brand accent, a hover color, or emphasis.",
+        "section": "colors"
+      },
+      {
+        "name": "The Typewriter Rule",
+        "body": "Fragment Mono is for filled values and identifiers only: field cells, table columns, IDs, latencies. Never set prose or headings in mono.",
+        "section": "typography"
+      },
+      {
+        "name": "The Figures-in-Prose Rule",
+        "body": "Numbers inside answer sentences stay in Archivo at weight 600 with tabular figures. Mono digits inside running text read as spaced-out digits. Store and SKU identifiers inside prose stay in Fragment Mono at 0.92em.",
+        "section": "typography"
+      },
+      {
+        "name": "The Printer's Caption Rule",
+        "body": "A caption labels a field on the form, in condensed sentence case. It is never an uppercase eyebrow over a heading and never decoration.",
+        "section": "typography"
+      },
+      {
+        "name": "The Ledger Grid Rule",
+        "body": "Structure is drawn with visible 1px rules, not with whitespace cards. Fields share borders; sections are separated by a strong rule across the full sheet width.",
+        "section": "layout"
+      },
+      {
+        "name": "The Paper-Only Depth Rule",
+        "body": "The only depth device is a hard-edged, square paper offset behind the open requisition. No blur, no soft shadow, no hover lift.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do put every system-written value in carbon ink (#23306b light, #c3cdff dark) and every preprinted caption in ledger green.",
+      "Do keep answer, evidence and audit on their own sheets: top sheet, canary (#f4e38a), pink (#f1c9d2).",
+      "Do draw structure with 1px ledger rules and shared borders; separate sections with the strong rule (#6f9a82).",
+      "Do set identifiers and field or table values in Fragment Mono with tabular figures; set figures inside answer prose in Archivo 600 tabular.",
+      "Do end every filed answer with exactly one stamp whose word and color state the verdict.",
+      "Do size bars by the real value (latency, safety stock, risk) with no track behind them.",
+      "Do make motion land in 2 steps at 90ms with no easing, and disable it under reduced motion."
+    ],
+    "donts": [
+      "Don't round any corner, or add soft shadows, blur, glow or hover lift.",
+      "Don't use chat bubbles, card grids, a dark dashboard default, or blue-purple gradients (PRODUCT.md: the UI must not look AI-generated).",
+      "Don't use canary or pink as highlight colors on the top sheet, or errata red for anything but a failure.",
+      "Don't set prose or headings in Fragment Mono, or figures inside answer sentences in mono.",
+      "Don't turn captions into uppercase eyebrows or labels over headings; a caption names a field.",
+      "Don't fill the primary button with pale ink in dark mode; there it is an ink-band fill with an ink border.",
+      "Don't show more than one stamp per requisition, or a stamp before the result is in."
+    ]
+  }
+}

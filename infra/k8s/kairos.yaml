@@ -1,0 +1,81 @@
+# Reference Kubernetes deployment (see docs/03-system-design/scaling.md).
+# API is stateless -> HPA on CPU. Training runs as a CronJob, not inside the API.
+# Shared state lives outside pods: warehouse + registry on a RWX volume here;
+# in a real cloud this is Postgres/Snowflake + S3/GCS (ADR-0003, ADR-0008).
+apiVersion: v1
+kind: ConfigMap
+metadata: { name: kairos-config }
+data:
+  KAIROS_ENV: prod
+  KAIROS_DATA_DIR: /data
+  KAIROS_LLM_PROVIDER: anthropic
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata: { name: kairos-api, labels: { app: kairos-api } }
+spec:
+  replicas: 2
+  selector: { matchLabels: { app: kairos-api } }
+  template:
+    metadata:
+      labels: { app: kairos-api }
+      annotations: { prometheus.io/scrape: "true", prometheus.io/port: "8000" }
+    spec:
+      securityContext: { runAsNonRoot: true, runAsUser: 10001 }
+      containers:
+        - name: api
+          image: ghcr.io/your-org/kairos:latest
+          ports: [{ containerPort: 8000 }]
+          envFrom:
+            - configMapRef: { name: kairos-config }
+            - secretRef: { name: kairos-secrets }   # KAIROS_ANTHROPIC_API_KEY, KAIROS_API_KEYS, KAIROS_ADMIN_API_KEYS
+          resources:
+            requests: { cpu: 500m, memory: 1Gi }
+            limits: { cpu: "2", memory: 2Gi }
+          readinessProbe: { httpGet: { path: /readyz, port: 8000 }, periodSeconds: 10 }
+          livenessProbe: { httpGet: { path: /healthz, port: 8000 }, periodSeconds: 20 }
+          volumeMounts: [{ name: data, mountPath: /data }]
+      volumes:
+        - name: data
+          persistentVolumeClaim: { claimName: kairos-data }
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata: { name: kairos-api }
+spec:
+  scaleTargetRef: { apiVersion: apps/v1, kind: Deployment, name: kairos-api }
+  minReplicas: 2
+  maxReplicas: 10
+  metrics:
+    - type: Resource
+      resource: { name: cpu, target: { type: Utilization, averageUtilization: 65 } }
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata: { name: kairos-train }
+spec:
+  schedule: "0 2 * * 1"          # weekly, Monday 02:00, after the weekend sales load
+  concurrencyPolicy: Forbid
+  jobTemplate:
+    spec:
+      backoffLimit: 1
+      template:
+        spec:
+          restartPolicy: Never
+          containers:
+            - name: train
+              image: ghcr.io/your-org/kairos:latest
+              command: ["kairos", "train"]
+              envFrom: [{ configMapRef: { name: kairos-config } }]
+              resources: { requests: { cpu: "2", memory: 4Gi } }
+              volumeMounts: [{ name: data, mountPath: /data }]
+          volumes:
+            - name: data
+              persistentVolumeClaim: { claimName: kairos-data }
+---
+apiVersion: v1
+kind: Service
+metadata: { name: kairos-api }
+spec:
+  selector: { app: kairos-api }
+  ports: [{ port: 80, targetPort: 8000 }]

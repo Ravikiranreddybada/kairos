@@ -1,0 +1,61 @@
+name: ci
+on:
+  pull_request:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "0 3 * * *"   # nightly: real-model eval
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12", cache: pip }
+      - run: pip install -e ".[dev,mcp,llm]"
+      - name: Lint
+        run: ruff check src tests
+      - name: Types
+        run: mypy src
+      - name: Tests (unit + integration, offline FakeLLM)
+        run: pytest -q
+      - name: Eval gate (offline, full golden set)
+        env: { KAIROS_DATA_DIR: var }
+        run: |
+          kairos seed
+          kairos train
+          kairos eval --gate --out var/eval_report.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: eval-report, path: var/eval_report.json }
+
+  nightly-real-model-eval:
+    if: github.event_name == 'schedule'
+    runs-on: ubuntu-latest
+    env:
+      KAIROS_LLM_PROVIDER: anthropic
+      KAIROS_ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      KAIROS_DATA_DIR: var
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12", cache: pip }
+      - run: pip install -e ".[llm]"
+      - run: kairos seed && kairos train && kairos eval --gate --out var/eval_report.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: nightly-eval, path: var/eval_report.json }
+
+  image:
+    needs: quality
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/setup-buildx-action@v3
+      - uses: docker/build-push-action@v6
+        with: { context: ., push: false, tags: "kairos:ci", cache-from: type=gha, cache-to: "type=gha,mode=max" }

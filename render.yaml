@@ -1,0 +1,27 @@
+# Render Blueprint: free web service. Data + champion are baked in at image build.
+# Set secrets once:  render services ... or dashboard > Environment.
+services:
+  - type: web
+    name: kairos-api
+    runtime: docker
+    plan: free
+    region: oregon
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /healthz
+    autoDeploy: true
+    envVars:
+      - key: PORT
+        value: "8000"
+      - key: KAIROS_ENV
+        value: prod
+      - key: KAIROS_DATA_DIR
+        value: /data
+      - key: KAIROS_LLM_PROVIDER
+        value: fake
+      # JSON lists, e.g. ["<random>"]. Must not be the dev defaults in prod.
+      - key: KAIROS_API_KEYS
+        sync: false
+      - key: KAIROS_ADMIN_API_KEYS
+        sync: false
+      - key: KAIROS_APPROVER_API_KEYS
+        sync: false

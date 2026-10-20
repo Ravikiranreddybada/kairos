@@ -12,7 +12,9 @@ FROM python:3.12-slim AS runtime
 # libgomp1: OpenMP runtime required by LightGBM
 RUN apt-get update && apt-get install -y --no-install-recommends libgomp1 curl \
     && rm -rf /var/lib/apt/lists/*
-ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1 KAIROS_DATA_DIR=/data
+# OMP_NUM_THREADS: LightGBM uses host core count, which oversubscribes CPU-limited containers
+# (a backtest fold took ~10 min on Render's builder instead of seconds).
+ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1 KAIROS_DATA_DIR=/data OMP_NUM_THREADS=2
 COPY --from=build /wheels /wheels
 RUN pip install --no-cache-dir /wheels/* && rm -rf /wheels
 RUN useradd --uid 10001 --create-home kairos && mkdir -p /data && chown kairos /data
